@@ -1,0 +1,7 @@
+0,inf,inf,inf,inf,W,E
+inf,0,inf,inf,inf,inf,N
+inf,inf,0,W,inf,inf,inf
+inf,inf,E,0,inf,inf,W
+inf,inf,inf,inf,0,E,inf
+E,inf,inf,inf,W,0,inf
+W,S,inf,E,inf,inf,0

@@ -1,0 +1,33 @@
+%Set Hangar Starts
+%Receive movement instructions (YOUSIF STUFF)
+input="h2p5";
+if input=="home"
+    
+splitinput=split(input,"",2);
+splitinput(6)=[];
+splitinput(1)=[];
+result=[strcat(splitinput(1),splitinput(2)) strcat(splitinput(3),splitinput(4))];
+Start=hangarbase.(result(1));
+End=hangarbase.(result(2));
+
+
+
+%Determine Robot Initial Positions (MISO STUFF)
+init1=2;
+init2=1;
+init3=3;
+%Determine Ending Positions
+fin1=End(1);
+fin2=End(2);
+fin3=End(3);
+%MARK PATHS FROM INITIAL POSITIONS TO RESPECTIVE PLANE
+bot1=bobthebuilder(init1,Start(1),InitialStrafeMatrix,NoPlaneP,NoPlaneID,noplanecompass);
+bot2=bobthebuilder(init2,Start(2),InitialStrafeMatrix,NoPlaneP,NoPlaneID,noplanecompass);
+bot3=bobthebuilder(init3,Start(3),InitialStrafeMatrix,NoPlaneP,NoPlaneID,noplanecompass);
+%..wait for bots to get there and confirm signal
+
+%Route center bot to final destination
+planepath=bobthebuilder(Start(1),End(1),InitialStrafeMatrix,PlaneP,PlaneID,planecompass);
+
+%Set other bots to FOLLOW mode, and then string them together until all
+%robots reach the target destination

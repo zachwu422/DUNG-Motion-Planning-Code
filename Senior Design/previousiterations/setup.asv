@@ -1,0 +1,22 @@
+%void setup code (basically shit that only has to be run once)
+clearvars
+noplane=load('noplane.csv'); %no plane path matrix
+plane=load('withplane.csv'); %with plane path matrix
+PlaneID=load('PlaneTagID.csv'); %RTFM
+NoPlaneID=load('NoPlaneTagID.csv'); %what it says
+load('planecompass.mat'); %with plane compass matrix
+InitialStrafeMatrix=[0 "F" 0 ; "L" 0 "R" ; 0 "B" 0];
+load('noplanecompass.mat')
+[S2,NoPlaneP]=floydwarsall(noplane);
+[S1,PlaneP]=floydwarsall(plane);
+
+%NOTE: bot1 is CENTER, bot2 is LEFT, bot3 is RIGHT
+
+%define airplane bays format[bot1 bot2 bot3]
+h1=[11 15 16]';
+h2=[25 21 26]';
+h3=[35 31 36]';
+h4=[45 41 46]';
+p5=[55 51 56]';
+p6=[65 61 66]';
+m7=[75 71 76]';
